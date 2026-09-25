@@ -1,0 +1,11 @@
+// Firebase is no longer part of TECUMP authentication or application data.
+// Keep this project-wide default-deny file in place so an accidentally
+// provisioned Firebase project cannot expose application data.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
